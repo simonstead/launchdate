@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import moment from 'moment';
+import fingersCrossed from './crossed.png';
 
 class App extends Component {
   constructor(props) {
@@ -59,13 +59,16 @@ class App extends Component {
         const then = moment('26-06-2018:12:00', 'DD-MM-YYYY:HH:mm');
         const now = moment();
         this.setState(() => ({
-          duration: `${then.diff(now, 'weeks')} weeks, ${then.diff(
-            now,
-            'days',
-          ) % 7} days, ${then.diff(now, 'hours') % 24} hours, ${then.diff(
-            now,
-            'minutes',
-          ) % 60} minutes, ${then.diff(now, 'seconds') % 60} seconds`,
+          duration: `${then.diff(now, 'weeks')} ${
+            then.diff(now, 'weeks') % 60 === 1 ? 'week' : 'weeks'
+          }, ${then.diff(now, 'days') % 7} days, ${then.diff(now, 'hours') %
+            24} ${
+            then.diff(now, 'hours') % 60 === 1 ? 'hour' : 'hours'
+          }, ${then.diff(now, 'minutes') % 60} ${
+            then.diff(now, 'minutes') % 60 === 1 ? 'minute' : 'minutes'
+          }, ${then.diff(now, 'seconds') % 60} ${
+            then.diff(now, 'seconds') % 60 === 1 ? 'second' : 'seconds'
+          }`,
         }));
       }.bind(this),
       1000,
@@ -80,6 +83,9 @@ class App extends Component {
       >
         <p>local.co.uk launch in</p>
         <p>{this.state.duration}</p>
+        <p>
+          <img src={fingersCrossed} alt="fingers crossed" />
+        </p>
       </div>
     );
   }
