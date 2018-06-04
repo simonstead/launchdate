@@ -86,6 +86,9 @@ class App extends Component {
         <p>
           <img src={fingersCrossed} alt="fingers crossed" />
         </p>
+        <p>
+          <strong>3</strong> suppliers signed up
+        </p>
       </div>
     );
   }
