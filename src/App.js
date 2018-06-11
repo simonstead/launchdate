@@ -81,7 +81,7 @@ class App extends Component {
         className="App"
         style={{ backgroundColor: this.state.backgroundColor }}
       >
-        <p>local.co.uk launch in</p>
+        <p>local.co.uk ready in</p>
         <p>{this.state.duration}</p>
         <p>
           <img src={fingersCrossed} alt="fingers crossed" />
