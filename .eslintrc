@@ -1,0 +1,119 @@
+{
+env: {
+browser: true,
+es6: true,
+node: true
+},
+extends: [
+"react-app",
+"plugin:jsx-a11y/recommended",
+"eslint:recommended",
+"plugin:import/recommended",
+"plugin:react/recommended"
+],
+parserOptions: {
+sourceType: "module",
+ecmaVersion: 6,
+ecmaFeatures: {
+jsx: true
+}
+},
+rules: {
+brace-style: [
+"error",
+"1tbs",
+{
+allowSingleLine: true
+}
+],
+react/prop-types: 0,
+class-methods-use-this: "error",
+consistent-return: "error",
+dot-notation: "error",
+eqeqeq: [
+"error"
+],
+func-call-spacing: [
+"error",
+"never"
+],
+guard-for-in: "error",
+indent: [
+"error",
+2
+],
+linebreak-style: [
+"error",
+"unix"
+],
+no-else-return: "error",
+no-eval: "error",
+no-extend-native: "error",
+no-extra-bind: "error",
+no-extra-label: "error",
+no-extra-semi: "error",
+no-fallthrough: "error",
+no-implicit-coercion: "error",
+no-implied-eval: "error",
+no-invalid-this: "error",
+no-lone-blocks: "error",
+no-loop-func: "error",
+no-magic-numbers: "warn",
+no-return-assign: "error",
+no-self-assign: "error",
+no-self-compare: "error",
+no-unneeded-ternary: [
+"error",
+{
+defaultAssignment: false
+}
+],
+no-unsafe-negation: "error",
+no-unused-labels: "error",
+no-unused-vars: [
+"error",
+{
+vars: "local"
+}
+],
+no-useless-call: "error",
+no-useless-computed-key: "error",
+no-useless-concat: "error",
+quotes: [
+"error",
+"single",
+{
+allowTemplateLiterals: true
+}
+],
+semi: [
+"error",
+"always"
+],
+use-isnan: "error",
+valid-typeof: [
+"error",
+{
+requireStringLiterals: true
+}
+],
+vars-on-top: "error",
+wrap-iife: [
+"error",
+"inside"
+],
+yoda: "error",
+import/unambiguous: 0,
+import/no-named-as-default: 0,
+react/no-unescaped-entities: 0,
+comma-dangle: [
+"error",
+"always-multiline"
+]
+},
+plugins: [
+"jsx-a11y",
+"react",
+"import"
+]
+}
