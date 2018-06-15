@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       duration: '',
       backgroundColor: '#00a1cc',
+      textColour: '#fff',
     };
   }
 
@@ -45,14 +46,29 @@ class App extends Component {
       '#9F2A00',
     ];
 
+    function getLightness(hex) {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      let r = parseInt(result[1], 16);
+      let g = parseInt(result[2], 16);
+      let b = parseInt(result[3], 16);
+
+      (r /= 255), (g /= 255), (b /= 255);
+
+      const max = Math.max(r, g, b),
+        min = Math.min(r, g, b);
+
+      return (max + min) / 2;
+    }
+
     setInterval(
       function() {
         const colour = colours[Math.floor(colours.length * Math.random()) - 1];
         this.setState(() => ({
           backgroundColor: colour,
+          textColour: getLightness(colour) > 0.5 ? '#000' : '#fff',
         }));
       }.bind(this),
-      1000 * 60,
+      1000 * 60
     );
     setInterval(
       function() {
@@ -71,7 +87,7 @@ class App extends Component {
           }`,
         }));
       }.bind(this),
-      1000,
+      1000
     );
   }
 
@@ -79,7 +95,10 @@ class App extends Component {
     return (
       <div
         className="App"
-        style={{ backgroundColor: this.state.backgroundColor }}
+        style={{
+          backgroundColor: this.state.backgroundColor,
+          color: this.state.textColour,
+        }}
       >
         <p>local.co.uk ready in</p>
         <p>{this.state.duration}</p>
