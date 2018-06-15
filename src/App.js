@@ -62,7 +62,8 @@ class App extends Component {
 
     setInterval(
       function() {
-        const colour = colours[Math.floor(colours.length * Math.random()) - 1];
+        const colour =
+          colours[Math.floor((colours.length - 1) * Math.random())];
         this.setState(() => ({
           backgroundColor: colour,
           textColour: getLightness(colour) > 0.5 ? '#000' : '#fff',
