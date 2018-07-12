@@ -73,7 +73,7 @@ class App extends Component {
     );
     setInterval(
       function() {
-        const then = moment('26-06-2018:12:00', 'DD-MM-YYYY:HH:mm');
+        const then = moment('01-08-2018:12:00', 'DD-MM-YYYY:HH:mm');
         const now = moment();
         this.setState(() => ({
           duration: `${then.diff(now, 'weeks')} ${
@@ -81,11 +81,7 @@ class App extends Component {
           }, ${then.diff(now, 'days') % 7} days, ${then.diff(now, 'hours') %
             24} ${
             then.diff(now, 'hours') % 60 === 1 ? 'hour' : 'hours'
-          }, ${then.diff(now, 'minutes') % 60} ${
-            then.diff(now, 'minutes') % 60 === 1 ? 'minute' : 'minutes'
-          }, ${then.diff(now, 'seconds') % 60} ${
-            then.diff(now, 'seconds') % 60 === 1 ? 'second' : 'seconds'
-          }`,
+          },`
         }));
       }.bind(this),
       1000
@@ -101,7 +97,7 @@ class App extends Component {
           color: this.state.textColour,
         }}
       >
-        <p>local.co.uk ready in</p>
+        <p>local.co.uk shop live in</p>
         <p>{this.state.duration}</p>
         <p>
           <img src={fingersCrossed} alt="fingers crossed" />
